@@ -8,5 +8,12 @@ cd /var/lib/jenkins/workspace/cprogram
 '''
 }
 }
+stage ('TEST') {
+steps {
+sh '''
+make ABC.exe
+'''
+}
+}
 }
 }
