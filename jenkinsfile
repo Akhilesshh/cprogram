@@ -5,8 +5,7 @@ stage ('BUILD') {
 agent { label 'masternode' }
 steps {
 sh '''
-cd /home/ubuntu/workspace/cprogram
-make ABC.exe
+sleep 5
 '''
 }
 }
