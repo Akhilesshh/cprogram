@@ -5,7 +5,7 @@ stage ('BUILD') {
 agent { label 'masternode' }
 steps {
 sh '''
-sleep 5
+pwd
 '''
 }
 }
@@ -13,7 +13,6 @@ stage ('TEST') {
 agent { label 'Slavenode' }
 steps {
 sh '''
-sleep 5
 echo "this is test stage"
 '''
 }
