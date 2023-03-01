@@ -5,7 +5,7 @@ stage ('BUILD') {
 agent { label 'masternode' }
 steps {
 sh '''
-cd /var/lib/jenkins/workspace/cprogram
+cd /home/ubuntu/workspace/cprogram
 make ABC.exe
 '''
 }
