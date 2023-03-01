@@ -10,7 +10,7 @@ sleep 5
 }
 }
 stage ('TEST') {
-agent { label 'slavenode' }
+agent { label 'Slavenode' }
 steps {
 sh '''
 sleep 5
@@ -27,7 +27,7 @@ echo "this is deploy stage"
 }
 }
 stage ('4th') {
-agent { label 'slavenode' }
+agent { label 'Slavenode' }
 steps {
 sh '''
 pwd
