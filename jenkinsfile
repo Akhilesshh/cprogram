@@ -1,7 +1,9 @@
 pipeline {
-agent any
+agent none
 stages {
 stage ('BUILD') {
+agent { label 'masternode'
+}
 steps {
 sh '''
 cd /var/lib/jenkins/workspace/cprogram
@@ -10,6 +12,8 @@ make ABC.exe
 }
 }
 stage ('TEST') {
+agent { label 'slavenode'
+}
 steps {
 sh '''
 sleep 5
@@ -18,6 +22,8 @@ echo "this is test stage"
 }
 }
 stage ('DEPLOY') {
+agent { label 'masternode'
+}
 steps {
 sh '''
 echo "this is deploy stage"
@@ -25,6 +31,8 @@ echo "this is deploy stage"
 }
 }
 stage ('4th') {
+agent { label 'slavenode'
+}
 steps {
 sh '''
 pwd
@@ -32,6 +40,8 @@ pwd
 }
 }
 stage('5th') {
+agent { label 'masternode'
+}
 steps {
 sh '''
 echo "$$"
