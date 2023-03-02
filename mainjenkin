@@ -4,7 +4,7 @@ parameters {
   string defaultValue: 'main', name: 'branch', trim: true
 }
 environment {
-  BRANCH_NAME = "$(branch)"
+  BRANCH_NAME = "${branch}"
 }
 
 stages {
