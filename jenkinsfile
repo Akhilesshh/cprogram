@@ -1,16 +1,18 @@
 pipeline {
-agent none
+agent any
+environment {
+  akhilesh = "devops"
+}
 stages {
 stage ('BUILD') {
-agent { label 'masternode' }
 steps {
 sh '''
 pwd
+echo "$akhilesh"
 '''
 }
 }
 stage ('TEST') {
-agent { label 'Slavenode' }
 steps {
 sh '''
 echo "this is test stage"
@@ -18,7 +20,6 @@ echo "this is test stage"
 }
 }
 stage ('DEPLOY') {
-agent { label 'masternode' }
 steps {
 sh '''
 echo "this is deploy stage"
@@ -26,7 +27,6 @@ echo "this is deploy stage"
 }
 }
 stage ('4th') {
-agent { label 'Slavenode' }
 steps {
 sh '''
 pwd
@@ -34,7 +34,6 @@ pwd
 }
 }
 stage('5th') {
-agent { label 'masternode' }
 steps {
 sh '''
 echo "$$"
