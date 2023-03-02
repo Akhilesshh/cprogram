@@ -1,9 +1,19 @@
 pipeline {
 agent any 
+parameters {
+  string defaultValue: 'main', name: 'branch', trim: true
+}
+
+environment {
+  BRANCH_NAME = "${branch}"
+}
 stages {
 stage('parallel') {
 parallel {
 stage ('STAGE-1') {
+when {
+branch 'main'
+}
 steps {
 sh '''
 echo "STAGE-1 executes if branch is master"
@@ -12,7 +22,7 @@ echo "STAGE-1 executes if branch is master"
 }
 stage ('STAGE-2') {
 when {
-branch 'master'
+branch 'main'
 }
 steps {
 sh '''
