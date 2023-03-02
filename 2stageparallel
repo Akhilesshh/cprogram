@@ -8,6 +8,13 @@ environment {
   BRANCH_NAME = "${branch}"
 }
 stages {
+stage('BUILD') {
+steps {
+sh '''
+echo "this is build stage"
+'''
+}
+}
 stage('parallel') {
 parallel {
 stage ('STAGE-1') {
