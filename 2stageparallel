@@ -38,6 +38,13 @@ echo "STAGE-2 executes if branch is master"
 }
 }
 }    
-}    
+}
+stage('DEPLOY') {
+steps {
+sh '''
+echo "this is deploy stage"
+'''
+}
+}
 }
 }
