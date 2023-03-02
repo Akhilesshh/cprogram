@@ -1,5 +1,12 @@
 pipeline {
 agent any
+parameters {
+  string defaultValue: 'main', name: 'branch', trim: true
+}
+environment {
+  BRANCH_NAME = "$(branch)"
+}
+
 stages {
 stage('BUILD') {
 when {
