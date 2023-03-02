@@ -3,16 +3,18 @@ agent any
 stages {
 stage('parallel') {
 parallel {
-stage('STAGE-1') {
-steps{
+stage ('STAGE-1') {
+steps {
 sh '''
 echo "STAGE-1 executes if branch is master"
+'''
 }
 }
-stage('STAGE-2'){
-steps{
+stage ('STAGE-2') {
+steps {
 sh '''
 echo "STAGE-2 executes if branch is master"
+'''
 }
 }
 }    
