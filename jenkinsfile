@@ -4,7 +4,7 @@ parameters {
   string defaultValue: 'india', name: 'nation', trim: true
 }
 environment {
-  akhilesh = "${devops}"
+  akhilesh = "${nation}"
 }
 stages {
 stage ('BUILD') {
