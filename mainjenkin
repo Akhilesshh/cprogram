@@ -6,7 +6,9 @@ when {
 branch 'main'
 }
 steps{
-sh "echo BUILD executes if branch is main"
+sh ''' 
+echo "BUILD executes if branch is main"
+'''
 }
 }
 stage('STAGE-2') {
@@ -14,7 +16,9 @@ when {
 branch 'branch1'
 }
 steps{
-sh "echo STAGE-2 executes if branch is branch1"
+sh ''' 
+echo "STAGE-2 executes if branch is branch1"
+'''
 }
 }
 }
