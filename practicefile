@@ -1,5 +1,5 @@
 pipeline{
-agent any
+agent none
 parameters {
   string defaultValue: 'apple', name: 'fruit', trim: true
 }
@@ -8,6 +8,7 @@ environment {
 }
 stages {
 stage ('BUILD') {
+agent { label 'masternode'}
 steps {
 catchError (buildResult:'SUCCESS', stageResult:'FAILURE') {
 sh '''
@@ -17,6 +18,7 @@ echo "exit 1"
 }
 }
 stage('TEST') {
+agent { label 'slavenode' }
 parallel {
 stage('01') {
 steps {
@@ -35,6 +37,7 @@ pwd
 }
 }
 stage('DEPLOY') {
+agent { label 'masternode' }
 steps {
 sh '''
 sleep 5
