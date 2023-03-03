@@ -9,8 +9,35 @@ environment {
 stages {
 stage ('BUILD') {
 steps {
+catchError (buildResult:'SUCCESS', stageResult:'FAILURE') {
+sh '''
+echo "exit 1"
+'''
+}
+}
+}
+stage('TEST') {
+parallel {
+stage('01') {
+steps {
 sh '''
 echo "$thing"
+'''
+}
+}
+stage('02') {
+steps {
+sh '''
+pwd
+'''
+}
+}
+}
+}
+stage('DEPLOY') {
+steps {
+sh '''
+sleep 5
 '''
 }
 }
