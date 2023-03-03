@@ -20,7 +20,7 @@ echo "exit 1"
 stage('TEST') {
 parallel {
 stage('01') {
-agent { label 'slavenode' }
+agent { label 'Slavenode' }
 steps {
 sh '''
 echo "$thing"
@@ -28,7 +28,7 @@ echo "$thing"
 }
 }
 stage('02') {
-agent { label 'slavenode' }
+agent { label 'Slavenode' }
 steps {
 sh '''
 pwd
