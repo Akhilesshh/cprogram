@@ -1,0 +1,18 @@
+pipeline{
+agent any
+parameters {
+  string defaultValue: 'apple', name: 'fruit', trim: true
+}
+environment {
+  thing = "${fruit}"
+}
+stages {
+stage ('BUILD') {
+steps {
+sh '''
+echo "this is build stage"
+'''
+}
+}
+}
+}
